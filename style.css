@@ -6,9 +6,38 @@
 
 :root {
     --box-color: #f0f3fa;
+    --change-up: #84bfb3;
+    --change-down: red;
     --fb-color: #2f8adb;
     --twitter-color: #1da1f3;
     --yt-color: #c20028;
+    --ig-color: linear-gradient(
+        90deg,
+        #f5c583,
+        #c9568f
+    );
+    --bg-lightmode: linear-gradient(
+        #f8f9fe 0%,
+        #f8f9fe 30%,
+        white 30%,
+        white 100%
+        );
+    --bg-darkmode: linear-gradient(
+        #20222f 0%,
+        #20222f 30%,
+        #1d2029 30%,
+        #1d2029 100%
+    );
+    --darkmode-button-gradient: linear-gradient(
+        90deg,
+        #3f95d0,
+        #4eca95
+    );
+    --darkmode-text-sm: #aeb2cb;
+    --darkmode-text-lg: white;
+    --darkmode-box-color: #252b43;
+    --dm-trans-time: 750ms;
+    --lm-text-grey: #616d7c;
 }
 
 html {
@@ -18,12 +47,7 @@ html {
 body {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(
-    #f8f9fe 0%,
-    #f8f9fe 30%,
-    white 30%,
-    white 100%
-    );
+    background: var(--bg-lightmode);
 }
 
 main {
@@ -61,7 +85,7 @@ main {
     height: 25px;
     background-color: #aeb2cb;
     border-radius: 12px;
-
+    cursor: pointer;
 }
 
 .switcher-button {
@@ -72,6 +96,8 @@ main {
     position: relative;
     left: 28px;
     top: 3px;
+    transition: background-color 175ms,
+                left 175ms;
 }
 
 .follower-grid {
@@ -85,12 +111,25 @@ main {
     border-radius: 4px;
     background-color: var(--box-color);
     overflow: hidden;
+    transition: background-color var(--dm-trans-time);
 }
 
 .color-strip {
     width: 100%;
     height: 4px;
     background-color: var(--fb-color);
+}
+
+#twitter-strip {
+    background-color: var(--twitter-color);
+}
+
+#ig-strip {
+    background: var(--ig-color);
+}
+
+#yt-strip {
+    background-color: var(--yt-color);
 }
 
 .follower-content {
@@ -142,7 +181,14 @@ main {
 .follower-change p {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #84bfb3;
+}
+
+.change-up {
+    color: var(--change-up);
+}
+
+.change-down {
+    color: var(--change-down);
 }
 
 .overview {
@@ -183,6 +229,32 @@ main {
 .overview-change {
     font-weight: 600;
     font-size: 0.9rem;
+}
+
+.darkmode-body {
+    background: var(--bg-darkmode);
+}
+
+.darkmode-boxes {
+    background-color: var(--darkmode-box-color):
+}
+
+.lm-black-text {
+    color: black;
+    transition: color var(--dm-trans-time);
+}
+
+.dm-white-text {
+    color: white;
+    transition: color var(--dm-trans-time);
+}
+
+.lm-grey-text {
+    color: var(--lm-text-grey);
+}
+
+.dm-grey-text {
+    color: var(--darkmode-text-sm);
 }
 
 @media screen and (max-width: 1000px) {
